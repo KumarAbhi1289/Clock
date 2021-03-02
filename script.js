@@ -9,7 +9,7 @@ setInterval(()=>{
     
     // for analog clock
     let s = time.getSeconds() * 6;
-    let m = time.getMinutes() * 6;
+    let m = time.getMinutes() * 6 + ((s/60)*1);
     let h = time.getHours() * 30 + ((m/6)*0.5);
     sec.style.transform = `rotate(${s}deg)`;
     min.style.transform = `rotate(${m}deg)`;
