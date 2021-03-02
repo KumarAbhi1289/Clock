@@ -9,7 +9,18 @@ setInterval(()=>{
     
     // for analog clock
     let s = time.getSeconds() * 6;
-    let m = time.getMinutes() * 6 + ((s/60)*1);
+    let m = time.getMinutes() * 6 + (s/60);
+
+    /* 
+        1hr = 60 min
+        60min = 360deg
+        every 60 sec min hand are rotate by 6 deg.
+        hour hand rotate by in each sec is 
+        => [(total hour hand rotate in 1 hour)/(total min in 1 hour)]
+        => 30/60 = 0.5
+        so rotation of hour hand is 0.5deg in each 6deg rotation of min hand.
+    */
+   
     let h = time.getHours() * 30 + ((m/6)*0.5);
     sec.style.transform = `rotate(${s}deg)`;
     min.style.transform = `rotate(${m}deg)`;
